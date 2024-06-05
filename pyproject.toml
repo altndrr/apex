@@ -19,7 +19,7 @@ _development = ["ipython", "pre-commit", "pytest", "ruff"]
 _entrypoints = ["instructor == 1.2.6", "rootutils == 1.0.7", "torchmetrics == 1.3.2"]
 data = ["imagenet-x == 0.0.7", "kaggle == 1.6.8"]
 models = ["accelerate == 0.28.0", "bitsandbytes == 0.43.0", "sentencepiece", "transformers"]
-tools = ["diffusers == 0.27.2", "scikit-image == 0.23.1"]
+tools = ["diffusers == 0.27.2", "scikit-image == 0.23.2"]
 utils = ["lovely-tensors", "pandas", "rich", "wandb"]
 
 [project.urls]
