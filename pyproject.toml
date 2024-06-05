@@ -1,0 +1,93 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "apex"
+version = "0.0.0"
+description = "Automatic benchmarking of large multimodal models via iterative experiment programming"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+license = {file = "LICENCE"}
+authors = [{name = "Alessandro Conti", email = "alessandro.conti.97@gmail.com"}]
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+dependencies = ["torch == 2.2.2", "torchvision", "hydra-core", "hydra-colorlog"]
+
+[project.optional-dependencies]
+_development = ["ipython", "pre-commit", "pytest", "ruff"]
+_entrypoints = ["instructor == 1.2.6", "rootutils == 1.0.7", "torchmetrics == 1.3.2"]
+data = ["imagenet-x == 0.0.7", "kaggle == 1.6.8"]
+models = ["accelerate == 0.28.0", "bitsandbytes == 0.43.0", "sentencepiece", "transformers"]
+tools = ["diffusers == 0.27.2", "scikit-image == 0.23.1"]
+utils = ["lovely-tensors", "pandas", "rich", "wandb"]
+
+[project.urls]
+source = "https://github.com/altndrr/apex"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: nocover",
+    "raise NotImplementedError",
+    "raise NotImplementedError()",
+    "if __name__ == .__main__.:",
+]
+
+[tool.interrogate]
+fail-under = 100
+ignore-init-module = true
+ignore-init-method = true
+ignore-magic = true
+ignore-module = true
+ignore-nested-functions = true
+
+[tool.flit.module]
+name = "src"
+
+[tool.pytest.ini_options]
+cache_dir = "~/.cache/pytest"
+addopts = [
+  "--color=yes",
+  "--durations=0",
+  "--strict-markers",
+  "--doctest-modules",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::UserWarning",
+]
+log_cli = "True"
+markers = [
+  "slow: slow tests",
+]
+minversion = "6.0"
+testpaths = "tests/"
+
+[tool.ruff]
+cache-dir = "~/.cache/ruff"
+include = ["notebooks", "src", "tests", "./*.py"]
+line-length = 99
+indent-width = 4
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "F",    # Pyflakes
+    "E",    # pycodestyle
+    "D",    # pydocstyle
+    "I",    # isort
+    "UP",   # pyupgrade
+    "ANN",  # flake8-annotations
+    "S",    # flake8-bandit
+    "B",    # flake8-bugbear
+    "EXE",  # flake8-executable
+    "G",    # flake8-logging-format
+    "T20",  # flake9-print
+    "SIM",  # flake8-simplify
+]
+ignore = ["D100", "D104", "D105", "D107", "D203", "D213", "ANN002", "ANN003", "ANN101", "ANN102", "S101"]
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = ["E501", "I", "ANN", "S", "G004", "T20"]
