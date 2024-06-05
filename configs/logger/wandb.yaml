@@ -1,0 +1,5 @@
+name: wandb
+save_dir: ${paths.output_dir}
+offline: True
+project: ""
+entity: ""

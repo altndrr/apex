@@ -1,0 +1,16 @@
+# list of loggers to disable
+disable_loggers:
+  - accelerate.utils.modeling
+  - diffusers.models.modeling_utils
+
+# disable python warnings if they annoy you
+ignore_warnings: True
+
+# monkey-patch tensor classes to have pretty representations
+lovely_tensors: True
+
+# define precision of matrix multiplication with tensor cores
+matmul_precision: medium
+
+# pretty print config tree at the start of the run using Rich library
+print_config: True
