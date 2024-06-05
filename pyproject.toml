@@ -12,7 +12,7 @@ license = {file = "LICENCE"}
 authors = [{name = "Alessandro Conti", email = "alessandro.conti.97@gmail.com"}]
 classifiers = ["License :: OSI Approved :: MIT License"]
 
-dependencies = ["torch == 2.2.2", "torchvision", "hydra-core", "hydra-colorlog"]
+dependencies = ["torch == 2.3.1", "torchvision", "hydra-core", "hydra-colorlog"]
 
 [project.optional-dependencies]
 _development = ["ipython", "pre-commit", "pytest", "ruff"]
