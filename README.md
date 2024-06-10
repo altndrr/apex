@@ -41,7 +41,7 @@ The only entry points is `main.py`. It must be called with the `query` argument,
 
 ```bash
 #  ask the model a question
-python src/main.py query="Can models ... ?"
+python main.py query="Can models ... ?"
 ```
 
 Note: the first run will take a while, as it will download the necessary models and datasets.
@@ -56,7 +56,7 @@ Parameters can be overwritten by passing them as command line arguments. You can
 
 ```bash
 # limit the number of experiments to 3
-python src/main.py query="Can models ... ?" ++max_experiments=3
+python main.py query="Can models ... ?" ++max_experiments=3
 ```
 
 ## Development
